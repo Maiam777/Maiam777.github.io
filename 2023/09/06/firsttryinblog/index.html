@@ -463,7 +463,7 @@ source/_post">
   - tag2
   - tag3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>经过测试：<code>tags: [blog,教程]</code>好像不行，会报错</p>
+<p><strong>经过测试</strong>：<code>tags: [blog,教程]</code>好像不行，会报错</p>
 <p><img src="/FirstTryInBlog_markdown_image/image-20230906195631351.png"></p>
 <p>但是</p>
 <pre class="line-numbers language-none"><code class="language-none">tags:
@@ -484,9 +484,17 @@ source/_post">
 <h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><p>在 Hexo 中插入图片，首先需要将图片放在 source/images/ 文件夹下，然后如下方式进行插入：</p>
 <pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token operator">!</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token operator">/</span>images<span class="token operator">/</span>insert_image<span class="token punctuation">.</span>jpg<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><code>try：![](只想喵喵.jpg）</code></p>
+<p>这里我们给出三种办法来引用图片。</p>
+<ol>
+<li>直接使用代码 <code>![](hexo.png)</code> （虽然没有写文件夹的名字，但是可以的），hexo.png 是我们存在 new article 文件夹内的图片。这时你会发现markdown预览中无法显示这张图片，但是当你将博客上传到网站时，网站上是可以正常显示的。</li>
+<li>使用代码 <code>![](new article/hexo.png)</code>不仅可以本地预览，上传到网站也可以正常显示。</li>
+<li>本地无法预览也是件很不舒服的事情，其实我们还可以另外创建一个文件夹 pictures ，里面专门存放所有文章的图片，代码 <code>![](pictures/hexo.png)</code> 不仅可以本地预览，上传到网站也可以正常显示。</li>
+</ol>
+<p>注意： 不管采取哪种办法，都要创建一个和md文件同名的文件夹，里面放上需要的图片。<br>如果 2和3 中代码无法实现网站上的正常显示，那就使用 1 中的代码。<br>因为 2和3 中代码我无法保证每个人都成功。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36408085/article/details/104117319">https://blog.csdn.net/qq_36408085/article/details/104117319</a></p>
+<p>【<strong>经测试</strong>，（本机上）方法1可以在网站上正常显示，但markdown预览中无法显示；方法2在网站上无法显示，markdown预览中可以显示】</p>
+<p><code>方法1_try：![](只想喵喵.jpg）</code></p>
 <p><img src="/2023/09/06/firsttryinblog/%E5%8F%AA%E6%83%B3%E5%96%B5%E5%96%B5.jpg"></p>
-<p><code>try：![](FirstTryInBlog/只想喵喵.jpg)</code></p>
+<p><code>方法2_try：![](FirstTryInBlog/只想喵喵.jpg)</code></p>
 <p><img src="/FirstTryInBlog/%E5%8F%AA%E6%83%B3%E5%96%B5%E5%96%B5.jpg"></p>
 <h5 id="参考：在hexo博客中插入图片的方法-hexo插入图片-kathy-kx的博客-CSDN博客"><a href="#参考：在hexo博客中插入图片的方法-hexo插入图片-kathy-kx的博客-CSDN博客" class="headerlink" title="参考：在hexo博客中插入图片的方法_hexo插入图片_kathy-kx的博客-CSDN博客"></a>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/2301_77285173/article/details/130189857">在hexo博客中插入图片的方法_hexo插入图片_kathy-kx的博客-CSDN博客</a></h5><blockquote>
 <p>方法二：文章资源文件夹<br>即，对于每篇文章，使用一个文件夹管理资源。<br>此方法的优点是，当文章很多时，便于结构化管理。缺点是，比方法一麻烦一点。</p>
@@ -496,49 +504,49 @@ marked:
   prependRoot: true
   postAsset: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>2.2 在终端cd到hexo文件夹，hexo new [layout] <title> 命令创建一篇新文章，此时会在hexo文件夹的source目录下，自动创建一个文件夹和.md文件。&lt;br&gt;&lt;strong&gt;注：这句命令中的layout可暂时不写，使用默认的。title就是你的新文章的名字。如果文章名中有空格，务必将整个文章名用双引号引起来。如果文章名中没有空格，可以加双引号，也可以不加。&lt;/strong&gt;&lt;br&gt;例如，执行hexo new “如何发布文章到hexo博客上(含插入图片的方法)”，如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src="/FirstTryInBlog_markdown_image/31d2990baf7849d187a5455de1843a96.jpeg"&gt;&lt;/p&gt;
-&lt;p&gt;会在source/&lt;em&gt;post文件夹下生成一个”如何发布文章到hexo博客上(含插入图片的方法).md”文件。如下：&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="/FirstTryInBlog_markdown_image/ae2ae4cb9922422bb1a2f453ceed95c5.png"&gt;&lt;/p&gt;
-&lt;p&gt;可以看到，同时还生成了一个同名的资源文件夹。&lt;br&gt;2.3 我们可以将所有与该文章有关的资源（包括图片）放在这个关联文件夹中&lt;br&gt;2.4 通过相对路径来引用图片资源。&lt;br&gt;例如，将“1.jpeg”这个图片资源放在该文件夹中，并在.md文件中像这样引用图片：&lt;code&gt;![图片](1.jpeg)&lt;/code&gt;，这个方法在资源较多时方便管理。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id="表格"&gt;&lt;a href="#表格" class="headerlink" title="表格"&gt;&lt;/a&gt;表格&lt;/h4&gt;&lt;pre class="line-numbers language-ruby" data-language="ruby"&gt;&lt;code class="language-ruby"&gt;&lt;span class="token operator"&gt;|&lt;/span&gt; 表头&lt;span class="token number"&gt;1&lt;/span&gt;&lt;span class="token operator"&gt;|&lt;/span&gt;表头&lt;span class="token number"&gt;2&lt;/span&gt;&lt;span class="token operator"&gt;|&lt;/span&gt;表头&lt;span class="token number"&gt;3&lt;/span&gt;&lt;span class="token operator"&gt;|&lt;/span&gt;表头&lt;span class="token number"&gt;4&lt;/span&gt;
-&lt;span class="token operator"&gt;|&lt;/span&gt;&lt;span class="token operator"&gt;-&lt;/span&gt;&lt;span class="token operator"&gt;|&lt;/span&gt; &lt;span class="token operator"&gt;:&lt;/span&gt;&lt;span class="token operator"&gt;-&lt;/span&gt; &lt;span class="token operator"&gt;|&lt;/span&gt; &lt;span class="token operator"&gt;:&lt;/span&gt;&lt;span class="token operator"&gt;-&lt;/span&gt;&lt;span class="token operator"&gt;:&lt;/span&gt; &lt;span class="token operator"&gt;|&lt;/span&gt; &lt;span class="token operator"&gt;-&lt;/span&gt;&lt;span class="token operator"&gt;:&lt;/span&gt; &lt;span class="token operator"&gt;|&lt;/span&gt;
-&lt;span class="token operator"&gt;|&lt;/span&gt;默认左对齐&lt;span class="token operator"&gt;|&lt;/span&gt;左对齐&lt;span class="token operator"&gt;|&lt;/span&gt;居中对其&lt;span class="token operator"&gt;|&lt;/span&gt;右对齐&lt;span class="token operator"&gt;|&lt;/span&gt;
-&lt;span class="token operator"&gt;|&lt;/span&gt;默认左对齐&lt;span class="token operator"&gt;|&lt;/span&gt;左对齐&lt;span class="token operator"&gt;|&lt;/span&gt;居中对其&lt;span class="token operator"&gt;|&lt;/span&gt;右对齐&lt;span class="token operator"&gt;|&lt;/span&gt;
-&lt;span class="token operator"&gt;|&lt;/span&gt;默认左对齐&lt;span class="token operator"&gt;|&lt;/span&gt;左对齐&lt;span class="token operator"&gt;|&lt;/span&gt;居中对其&lt;span class="token operator"&gt;|&lt;/span&gt;右对齐&lt;span class="token operator"&gt;|&lt;/span&gt;&lt;span aria-hidden="true" class="line-numbers-rows"&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+<p>2.2 在终端cd到hexo文件夹，hexo new [layout] <title> 命令创建一篇新文章，此时会在hexo文件夹的source目录下，自动创建一个文件夹和.md文件。&lt;br&gt;&lt;strong&gt;注：这句命令中的layout可暂时不写，使用默认的。title就是你的新文章的名字。如果文章名中有空格，务必将整个文章名用双引号引起来。如果文章名中没有空格，可以加双引号，也可以不加。&lt;/strong&gt;&lt;br&gt;例如，执行hexo new “如何发布文章到hexo博客上(含插入图片的方法)”，如下：</title></p>
+<p><img src="/FirstTryInBlog_markdown_image/31d2990baf7849d187a5455de1843a96.jpeg"></p>
+<p>会在source/<em>post文件夹下生成一个”如何发布文章到hexo博客上(含插入图片的方法).md”文件。如下：</em></p>
+<p><img src="/FirstTryInBlog_markdown_image/ae2ae4cb9922422bb1a2f453ceed95c5.png"></p>
+<p>可以看到，同时还生成了一个同名的资源文件夹。<br>2.3 我们可以将所有与该文章有关的资源（包括图片）放在这个关联文件夹中<br>2.4 通过相对路径来引用图片资源。<br>例如，将“1.jpeg”这个图片资源放在该文件夹中，并在.md文件中像这样引用图片：<code>![图片](1.jpeg)</code>，这个方法在资源较多时方便管理。</p>
+</blockquote>
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><pre class="line-numbers language-ruby" data-language="ruby"><code class="language-ruby"><span class="token operator">|</span> 表头<span class="token number">1</span><span class="token operator">|</span>表头<span class="token number">2</span><span class="token operator">|</span>表头<span class="token number">3</span><span class="token operator">|</span>表头<span class="token number">4</span>
+<span class="token operator">|</span><span class="token operator">-</span><span class="token operator">|</span> <span class="token operator">:</span><span class="token operator">-</span> <span class="token operator">|</span> <span class="token operator">:</span><span class="token operator">-</span><span class="token operator">:</span> <span class="token operator">|</span> <span class="token operator">-</span><span class="token operator">:</span> <span class="token operator">|</span>
+<span class="token operator">|</span>默认左对齐<span class="token operator">|</span>左对齐<span class="token operator">|</span>居中对其<span class="token operator">|</span>右对齐<span class="token operator">|</span>
+<span class="token operator">|</span>默认左对齐<span class="token operator">|</span>左对齐<span class="token operator">|</span>居中对其<span class="token operator">|</span>右对齐<span class="token operator">|</span>
+<span class="token operator">|</span>默认左对齐<span class="token operator">|</span>左对齐<span class="token operator">|</span>居中对其<span class="token operator">|</span>右对齐<span class="token operator">|</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-&lt;p&gt;效果：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;表头1&lt;/th&gt;
-&lt;th align="left"&gt;表头2&lt;/th&gt;
-&lt;th align="center"&gt;表头3&lt;/th&gt;
-&lt;th align="right"&gt;表头4&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td&gt;默认左对齐&lt;/td&gt;
-&lt;td align="left"&gt;左对齐&lt;/td&gt;
-&lt;td align="center"&gt;居中对其&lt;/td&gt;
-&lt;td align="right"&gt;右对齐&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;默认左对齐&lt;/td&gt;
-&lt;td align="left"&gt;左对齐&lt;/td&gt;
-&lt;td align="center"&gt;居中对其&lt;/td&gt;
-&lt;td align="right"&gt;右对齐&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;默认左对齐&lt;/td&gt;
-&lt;td align="left"&gt;左对齐&lt;/td&gt;
-&lt;td align="center"&gt;居中对其&lt;/td&gt;
-&lt;td align="right"&gt;右对齐&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-&lt;p&gt;链接：&lt;a href="https://www.jianshu.com/p/56d99a3049a5"&gt;https://www.jianshu.com/p/56d99a3049a5&lt;/a&gt;&lt;br&gt;来源：简书&lt;/p&gt;
-</title></p></blockquote>
+<p>效果：</p>
+<table>
+<thead>
+<tr>
+<th>表头1</th>
+<th align="left">表头2</th>
+<th align="center">表头3</th>
+<th align="right">表头4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对其</td>
+<td align="right">右对齐</td>
+</tr>
+<tr>
+<td>默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对其</td>
+<td align="right">右对齐</td>
+</tr>
+<tr>
+<td>默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对其</td>
+<td align="right">右对齐</td>
+</tr>
+</tbody></table>
+<p>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/56d99a3049a5">https://www.jianshu.com/p/56d99a3049a5</a><br>来源：简书</p>
+
                 
             </div>
             <hr/>
