@@ -464,7 +464,7 @@ source/_post">
   - tag3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>经过测试</strong>：<code>tags: [blog,教程]</code>好像不行，会报错</p>
-<p><img src="/FirstTryInBlog_markdown_image/image-20230906195631351.png"></p>
+<p><img src="/2023/09/06/firsttryinblog/image-20230906195631351.png"></p>
 <p>但是</p>
 <pre class="line-numbers language-none"><code class="language-none">tags:
   - tag1
@@ -505,9 +505,9 @@ marked:
   postAsset: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>2.2 在终端cd到hexo文件夹，hexo new [layout] <title> 命令创建一篇新文章，此时会在hexo文件夹的source目录下，自动创建一个文件夹和.md文件。&lt;br&gt;&lt;strong&gt;注：这句命令中的layout可暂时不写，使用默认的。title就是你的新文章的名字。如果文章名中有空格，务必将整个文章名用双引号引起来。如果文章名中没有空格，可以加双引号，也可以不加。&lt;/strong&gt;&lt;br&gt;例如，执行hexo new “如何发布文章到hexo博客上(含插入图片的方法)”，如下：</title></p>
-<p><img src="/FirstTryInBlog_markdown_image/31d2990baf7849d187a5455de1843a96.jpeg"></p>
+<p><img src="/2023/09/06/firsttryinblog/31d2990baf7849d187a5455de1843a96.jpeg"></p>
 <p>会在source/<em>post文件夹下生成一个”如何发布文章到hexo博客上(含插入图片的方法).md”文件。如下：</em></p>
-<p><img src="/FirstTryInBlog_markdown_image/ae2ae4cb9922422bb1a2f453ceed95c5.png"></p>
+<p><img src="/2023/09/06/firsttryinblog/ae2ae4cb9922422bb1a2f453ceed95c5.png"></p>
 <p>可以看到，同时还生成了一个同名的资源文件夹。<br>2.3 我们可以将所有与该文章有关的资源（包括图片）放在这个关联文件夹中<br>2.4 通过相对路径来引用图片资源。<br>例如，将“1.jpeg”这个图片资源放在该文件夹中，并在.md文件中像这样引用图片：<code>![图片](1.jpeg)</code>，这个方法在资源较多时方便管理。</p>
 </blockquote>
 <h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><pre class="line-numbers language-ruby" data-language="ruby"><code class="language-ruby"><span class="token operator">|</span> 表头<span class="token number">1</span><span class="token operator">|</span>表头<span class="token number">2</span><span class="token operator">|</span>表头<span class="token number">3</span><span class="token operator">|</span>表头<span class="token number">4</span>
